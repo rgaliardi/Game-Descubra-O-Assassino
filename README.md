@@ -1,6 +1,7 @@
-# game-DescubraOAssassino
-Hands-on
+# Descubra o Assassino
+Hands-on - Projeto Piloto e Base de Desenvolvimento (PoC)
 
+# Descrição
 O JOGO O empresário Sean Bean foi assassinado e o corpo dele foi deixado na frente da delegacia de polícia. O Inspetor Jacques Clouseau foi escolhido para investigar este caso. Após uma série de investigações, ele organizou uma lista com prováveis assassinos, os locais do crime e quais armas poderiam ter sido utilizadas. 
 	Suspeitos: 
 		1. Esqueleto
