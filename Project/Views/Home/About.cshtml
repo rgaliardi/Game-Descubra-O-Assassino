@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Sobre";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div>
+    <p>O JOGO - Descubra o Assassino</p>
+    <p>
+        O empresário Sean Bean foi assassinado e o corpo dele foi deixado na frente da delegacia de polícia.
+        O Inspetor Jacques Clouseau foi escolhido para investigar este caso.
+        Após uma série de investigações, ele organizou uma lista com prováveis assassinos, os locais do crime e quais armas poderiam ter sido utilizadas.
+    </p>
+    <div class="row">
+        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+            <h4>Suspeitos:</h4>
+            <ul>1. Esqueleto</ul>
+            <ul>2. Khan</ul>
+            <ul>3. Darth Vader</ul>
+            <ul>4. Sideshow Bob</ul>
+            <ul>5. Coringa</ul>
+            <ul>6. Duende Verde</ul>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+            <h4>Locais:</h4>
+            <ul>1. Etérnia</ul>
+            <ul>1. Etérnia</ul>
+            <ul>2. Vulcano</ul>
+            <ul>3. Tatooine</ul>
+            <ul>4. Springfield</ul>
+            <ul>5. Gotham</ul>
+            <ul>6. Nova York</ul>
+            <ul>7. Sibéria</ul>
+            <ul>8. Machu Picchu</ul>
+            <ul>9. Show do Katinguele</ul>
+            <ul>10. São Paulo</ul>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+            <h4>Armas:</h4>
+            <ul>1. Cajado Devastador</ul>
+            <ul>2. Phaser</ul>
+            <ul>3. Peixeira</ul>
+            <ul>4. Trezoitão</ul>
+            <ul>5. Sabre de Luz</ul>
+            <ul>6. Bomba</ul>
+        </div>
+    </div>
+    <p>
+        Uma testemunha foi encontrada, mas ela só consegue responder se Clouseau fornecer uma teoria.
+        Para cada teoria ele "chuta" um assassino, um local e uma arma.
+        A testemunha então responde com um número.
+        Se a teoria estiver correta (assassino, local e arma corretos), ela responde 0.
+        Se a teoria está errada, um valor 1,2 ou 3 é retornado.
+         1 indica que o assassino está incorreto;
+         2 indica que o local está incorreto;
+         3 indica que a arma está incorreta.
+         Se mais de uma suposição está incorreta, ela retorna um valor arbitrário entre as que estão incorretos (isso é totalmente aleatório).
+        Por exemplo, se o assassino for Khan em Springfield usando uma Peixeira:
+         Teoria: 1, 1, 1 (Esqueleto, Etérnia, Cajado Devastador)
+        o Retorno: 1, ou 2, ou 3 (todos estão incorretos)
+         Teoria: 6, 4, 5 (Duende Verde, Springfield, Sabre de Luz)
+        o Retorno: 1, ou 3 (somente o local está correto)
+         Teoria: 5, 4, 3 (Coringa, Springfield, Peixeira)
+        o Retorno: 1 (somente o assassino está incorreto)
+         Teoria: 2, 4, 3
+        o Retorno: 0 (todos corretos, você solucionou o caso)
+    </p>
+</div>
+
+@Scripts.Render("~/bundles/loaded")

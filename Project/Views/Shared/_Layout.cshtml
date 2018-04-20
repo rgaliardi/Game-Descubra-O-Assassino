@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Descubra o Assassino</title>
+    <link rel="icon" type="image/png" href="~/favicon.ico" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <input type="hidden" id="success" value="@TempData["success"]" />
+    <input type="hidden" id="info" value="@TempData["info"]" />
+    <input type="hidden" id="warning" value="@TempData["warning"]" />
+    <input type="hidden" id="error" value="@TempData["error"]" />
+
+    <div id="header" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Descubra o Assassino", "Index", "Home", new { area = "" }, new { @class = "navbar-brand button" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Início", "Index", "Home", null, new { @title = "Página abertura", @class = "button" })</li>
+                    <li>@Html.ActionLink("Jogo", "Index", "Play", null, new { @title = "Página do jogo", @class = "button" })</li>
+                    <li>@Html.ActionLink("Contato", "Contact", "Home", null, new { @title = "Sobre o Desenvolvedor", @class = "button" })</li>
+                    <li>@Html.ActionLink("Sobre...", "About", "Home", null, new { @title = "Sobre o jogo", @class = "button" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="container">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+    </div>
+
+    <div id="footer" class="navbar navbar-inverse navbar-fixed-bottom">
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Ricardo Galiardi</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.ddlSuspects = Services.Business.SuspectsBusiness.Instance.Dropdown();
+    ViewBag.ddlPlaces = Services.Business.PlacesBusiness.Instance.Dropdown();
+    ViewBag.ddlWeapons = Services.Business.WeaponsBusiness.Instance.Dropdown();
+
+    //TempData["success"] = "Mensagem!!";
+}
+
+<div class="jumbotron">
+    <h1 style="text-align: center;">Descubra o Assassino!</h1>
+    <p>
+        O empresário Sean Bean foi assassinado e o corpo dele foi deixado na frente da delegacia de polícia. O Inspetor Jacques
+        Clouseau foi escolhido para investigar este caso. Após uma série de investigações, ele organizou uma lista com
+        prováveis assassinos, os locais do crime e quais armas poderiam ter sido utilizadas.
+    </p>
+    <p>
+        Uma testemunha foi encontrada, mas ela só consegue responder se Clouseau fornecer uma teoria.
+        Para cada teoria você deve "chutar" um assassino, um local e uma arma.
+    </p>
+    <div class="row">
+        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+            <h4>Suspeitos:</h4>
+            @Html.DropDownList("ddlSuspects", null, "", new { @class = "form-control chosen-select" })
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+            <h4>Locais:</h4>
+            @Html.DropDownList("ddlPlaces", null, "", new { @class = "form-control chosen-select" })
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+            <h4>Armas:</h4>
+            @Html.DropDownList("ddlWeapons", null, "", new { @class = "form-control chosen-select" })
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 text-center">
+            <h4>&nbsp;</h4>
+            <input id="btnValidate" type="button" value="Validar" class="btn btn-success button" style="width: 120px;" disabled />
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("select#ddlSuspects").chosen().change(function (event) {
+            event.preventDefault();
+            valid();
+        });
+
+        $("select#ddlPlaces").chosen().change(function (event) {
+            event.preventDefault();
+            valid();
+        });
+
+        $("select#ddlWeapons").chosen().change(function (event) {
+            event.preventDefault();
+            valid();            
+        });
+    });   
+
+    $("#btnValidate").on("click", function (event) {
+        var parameters;
+
+        parameters = {
+            suspect: $("select#ddlSuspects").chosen().val(),
+            place: $("select#ddlPlaces").chosen().val(),
+            weapon: $("select#ddlWeapons").chosen().val()
+        };
+        callMethodAPI("play/History_Save", parameters);
+
+        $.ajax({
+            url: pathHTTP + 'play/Check',
+            type: 'GET',
+            dataType: "json",
+            data: parameters,
+            async: false,
+            cache: false,
+            success: function (data) {
+
+                if (data.success) {
+                    displayMessage(data.message, "success");
+                } else {
+                    displayMessage(data.message, "error");
+                }
+                waiting(false);
+            },
+            error: function (xhr, status, error) {
+                operationError(xhr, status, error);
+            }
+        });
+    });
+
+    var valid = (function () {
+        var _suspect = $("select#ddlSuspects").chosen().val();
+        var _place = $("select#ddlPlaces").chosen().val();
+        var _weapon = $("select#ddlWeapons").chosen().val();
+
+        if (_suspect > 0 && _place > 0 && _weapon > 0) {
+            $("#btnValidate").attr("disabled", false);
+        } else {
+            $("#btnValidate").attr("disabled", true);
+        }
+    });
+</script>
+
+@Scripts.Render("~/bundles/loaded")
