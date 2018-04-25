@@ -53,6 +53,10 @@ p {
     margin: 5px 0 5px;
 }
 
+.dropdown {
+    width: 100%;
+}
+
 .loader,
 #loading {
     /*display: none;*/

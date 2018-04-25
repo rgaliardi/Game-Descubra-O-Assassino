@@ -10,7 +10,6 @@ namespace HandsOn.Controllers
 {
     public class PlayController : Controller
     {
-        [PageTitle("Jogo")]
         public ActionResult Index()
         {
             Services.Business.PlayBusiness.Instance.Crime = null;

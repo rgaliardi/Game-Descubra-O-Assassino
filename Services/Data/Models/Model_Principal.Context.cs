@@ -31,24 +31,9 @@ namespace Services.Data.Models
         public virtual DbSet<Suspects> Suspects { get; set; }
         public virtual DbSet<Weapons> Weapons { get; set; }
     
-        public virtual int sp_Places_RND()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Places_RND");
-        }
-    
         public virtual ObjectResult<sp_Random_Result> sp_Random()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Random_Result>("sp_Random");
-        }
-    
-        public virtual int sp_Suspects_RND()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Suspects_RND");
-        }
-    
-        public virtual int sp_Weapons_RND()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_Weapons_RND");
-        }
+        }  
     }
 }

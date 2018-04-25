@@ -18,21 +18,21 @@
         Para cada teoria você deve "chutar" um assassino, um local e uma arma.
     </p>
     <div class="row">
-        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <h4>Suspeitos:</h4>
-            @Html.DropDownList("ddlSuspects", null, "", new { @class = "form-control chosen-select" })
+            @Html.DropDownList("ddlSuspects", null, "", new { @class = "form-control chosen-select dropdown" })
         </div>
-        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <h4>Locais:</h4>
-            @Html.DropDownList("ddlPlaces", null, "", new { @class = "form-control chosen-select" })
+            @Html.DropDownList("ddlPlaces", null, "", new { @class = "form-control chosen-select dropdown" })
         </div>
-        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <h4>Armas:</h4>
-            @Html.DropDownList("ddlWeapons", null, "", new { @class = "form-control chosen-select" })
+            @Html.DropDownList("ddlWeapons", null, "", new { @class = "form-control chosen-select dropdown" })
         </div>
-        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 text-center">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <h4>&nbsp;</h4>
-            <input id="btnValidate" type="button" value="Validar" class="btn btn-success button" style="width: 120px;" disabled />
+            <input id="btnValidate" type="button" value="Validar" class="btn btn-success button" style="width: 80%;" disabled />
         </div>
     </div>
 </div>
